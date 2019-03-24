@@ -14,6 +14,12 @@ public class UnitCreator : ScriptableObject
         Tank
     };
 
+    public enum UnitTeam
+    {
+        Player,
+        Enemy
+    };
+
     public string m_unitname;
     public int m_worthkilling;
     public int m_health;
@@ -21,4 +27,5 @@ public class UnitCreator : ScriptableObject
     public float m_damageamount;
     public int m_buildcost;
     public UnitType m_unittype;
+    public UnitTeam m_unitteam;
 }
