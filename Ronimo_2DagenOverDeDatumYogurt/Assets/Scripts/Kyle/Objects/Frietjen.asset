@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de1871bbfbf5f7b4ca3091abde3b953d, type: 3}
-  m_Name: Hamburger
+  m_Name: Frietjen
   m_EditorClassIdentifier: 
-  m_unitname: Hamburglar
-  m_worthkilling: 75
-  m_health: 25
+  m_unitname: lekkerFrietje
+  m_worthkilling: 100
+  m_health: 50
   m_movementspeed: 3
-  m_damageamount: 8
-  m_buildcost: 100
-  m_unittype: 3
+  m_damageamount: 10
+  m_buildcost: 150
+  m_unittype: 0
   m_unitteam: 0
