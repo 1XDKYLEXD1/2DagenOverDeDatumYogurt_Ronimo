@@ -8,20 +8,25 @@ public class EnemyAI : MonoBehaviour
     private List<GameObject> _Units;
 
     [SerializeField]
-    private GameObject _SpawnPoint;
+    private GameObject _SpawnPoint, _MinerUnit;
 
     private float _Timer;
     private int _Index;
-    private int _SpawnCount;
+    private int _MeleeSpawnCount;
 
     [SerializeField]
     private float _TimeUntillSpawn;
 
     void Start()
     {
-        _SpawnCount = 0;
+        _MeleeSpawnCount = 0;
         _Timer = 0;
         _Index = 0;
+
+        for(int i = 0; i < 2; i++)
+        {
+            Instantiate(_MinerUnit, _SpawnPoint.transform.position, Quaternion.identity);
+        }
     }
 
     void Update()
@@ -45,24 +50,20 @@ public class EnemyAI : MonoBehaviour
             switch (unitType)
             {
                 case UnitCreator.UnitType.Melee:
-                    if(_SpawnCount < 3)
+                    if(_MeleeSpawnCount < 3)
                     {
                         Instantiate(_Units[_Index], _SpawnPoint.transform.position, Quaternion.identity);
-                        _SpawnCount += 1;
+                        _MeleeSpawnCount += 1;
                     }                   
-                    else if(_SpawnCount >= 3)
+                    else if(_MeleeSpawnCount >= 3)
                     {
                         _Index = 2;
-                        _SpawnCount = 0;
+                        _MeleeSpawnCount = 0;
                     }
                     break;
                 case UnitCreator.UnitType.Archer:
                     Instantiate(_Units[_Index], _SpawnPoint.transform.position, Quaternion.identity);
                     _Index = 3;
-                    break;
-                case UnitCreator.UnitType.Miner:
-                    Instantiate(_Units[_Index], _SpawnPoint.transform.position, Quaternion.identity);
-                    _Index = 0;
                     break;
                 case UnitCreator.UnitType.Spellcaster:
                     Instantiate(_Units[_Index], _SpawnPoint.transform.position, Quaternion.identity);
