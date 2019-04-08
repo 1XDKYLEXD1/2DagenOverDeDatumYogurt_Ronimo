@@ -11,6 +11,15 @@ public class CameraScript : MonoBehaviour
     {
         MoveWithKeyboard();
         MoveWithMouse();
+
+        if (transform.position.x < _MinXPosition)
+        {
+            transform.position = new Vector3(_MinXPosition, 0, -10);
+        }
+        if (transform.position.x > _MaxXPosition)
+        {
+            transform.position = new Vector3(_MaxXPosition, 0, -10);
+        }
     }
 
     private float CalculateRelativePercentage(float one, float two)
@@ -38,12 +47,6 @@ public class CameraScript : MonoBehaviour
         eighty = screenWidth * 0.8f;
         hundred = screenWidth;
 
-        //Debug.Log("Twenty Percent: " + twenty);
-        //Debug.Log("Eighty Percent: " + eighty);
-        //Debug.Log("Onehundred Percent: " + hundred);
-
-        //Debug.Log("Mouse Position: " + mousePos.x);
-
         if(transform.position.x > _MinXPosition || transform.position.x < _MaxXPosition)
         {
             if (mousePos.x < twenty && mousePos.x > zero)
@@ -67,15 +70,6 @@ public class CameraScript : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < _MaxXPosition)
         {
             transform.position -= -Vector3.right * Time.deltaTime * _Speed;
-        }
-
-        if (transform.position.x < _MinXPosition)
-        {
-            transform.position = new Vector3(_MinXPosition, 0, 0);
-        }
-        if (transform.position.x > _MaxXPosition)
-        {
-            transform.position = new Vector3(_MaxXPosition, 0, 0);
         }
     }
 

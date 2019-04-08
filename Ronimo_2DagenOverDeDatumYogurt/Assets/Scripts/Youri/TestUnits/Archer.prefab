@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &905410277557035457
+--- !u!1 &8880049427898427906
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7529324974442677836}
-  - component: {fileID: 8953372761900921404}
+  - component: {fileID: 8880049427898427909}
+  - component: {fileID: 4567946836164688565}
   m_Layer: 0
-  m_Name: Melee
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7529324974442677836
+--- !u!4 &8880049427898427909
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905410277557035457}
+  m_GameObject: {fileID: 8880049427898427906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.25543082, y: 0.1703916, z: -9.983845}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,16 +31,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8953372761900921404
+--- !u!114 &4567946836164688565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905410277557035457}
+  m_GameObject: {fileID: 8880049427898427906}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d727c3e7aa321489f3d6472e216ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_unitdata: {fileID: 11400000, guid: 636b048670a611843acb58aa715d601a, type: 2}
+  m_unitdata: {fileID: 11400000, guid: 2f70dbcdfe1bc644ba1a9f87fa1a478b, type: 2}
