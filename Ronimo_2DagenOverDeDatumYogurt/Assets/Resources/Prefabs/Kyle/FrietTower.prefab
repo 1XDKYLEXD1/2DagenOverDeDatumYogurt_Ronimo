@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3717665740539188743}
   - component: {fileID: 4361637848300301207}
   - component: {fileID: 9064195897318545915}
+  - component: {fileID: 6423419813134970955}
   m_Layer: 0
   m_Name: FrietTower
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 675253728682194297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -58.644985, y: -29.458738, z: 0.32748544}
-  m_LocalScale: {x: 2.9393, y: 2.431, z: 2.21}
+  m_LocalScale: {x: 14.922532, y: 12.341944, z: 11.219949}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,3 +93,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62182b700606edf4fb845f82f2a09204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_maxhealth: 250
+  m_maxdamage: 6
+--- !u!58 &6423419813134970955
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675253728682194297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011601154, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.0094726
