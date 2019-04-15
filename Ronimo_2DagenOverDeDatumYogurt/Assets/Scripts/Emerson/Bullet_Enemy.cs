@@ -11,7 +11,7 @@ public class Bullet_Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * -speed;
+        rb.velocity = transform.right * speed;
 
     }
 

@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
         if (m_Walking == true)
         {
-            transform.position += transform.right * -speed * Time.deltaTime;
+            transform.position += transform.right * speed * Time.deltaTime;
         }
 
         if (m_Timer == 0 || m_Timer < 0)
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         int layermask = 1 << 9; //Enemy Layer into layermask
 
 
-        Vector3 _left = m_Enemy.transform.TransformDirection(Vector3.left);
+        Vector3 _left = m_Enemy.transform.TransformDirection(Vector3.right);
         //raycast 
         bool result = Physics.Raycast(transform.position, _left, out m_hit, m_Raylength, layermask);
         Debug.DrawRay(transform.position, _left * m_Raylength, Color.red);
@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
             {
                 state = PlayerBehavior.walking;
             }
-            else
+            if (result == true)
             {
                 IsAttacking();
             }

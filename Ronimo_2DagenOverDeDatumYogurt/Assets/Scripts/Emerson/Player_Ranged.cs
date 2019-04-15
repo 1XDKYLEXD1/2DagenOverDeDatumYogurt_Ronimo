@@ -15,7 +15,7 @@ public class Player_Ranged : MonoBehaviour
     [SerializeField]
     [Range(1f, 30f)]
     private float m_Raylength;
-    private float m_Timer = 1.0f;
+    public float m_Timer = 1.0f;
 
 
     public int health = 5;
@@ -44,43 +44,42 @@ public class Player_Ranged : MonoBehaviour
     void Update()
     {
 
-
-        if(m_Walking == true)
+        if (m_Walking == true)
         {
-            transform.position += transform.right * +speed * Time.deltaTime;
+            transform.position += transform.right * speed * Time.deltaTime;
         }
 
         if (m_Timer == 0 || m_Timer < 0)
         {
             m_Timer = 1;
         }
-        int layermask = 1 << 10; //Enemy Layer into layermask
+        int layermask = 1 << 9; //Enemy Layer into layermask
 
 
-        Vector3 _right = m_Enemy.transform.TransformDirection(Vector3.right);
+        Vector3 _left = m_Enemy.transform.TransformDirection(Vector3.right);
         //raycast 
-        bool result = Physics.Raycast(transform.position, _right, out m_hit, m_Raylength, layermask);
-        Debug.DrawRay(transform.position, _right * m_Raylength, Color.red);
-        if (result == true && m_hit.transform.CompareTag("Player"))
-        {
-            state = PlayerBehavior.waiting;
-            Debug.Log("beep");
-        }
+        bool result = Physics.Raycast(transform.position, _left, out m_hit, m_Raylength, layermask);
+        Debug.DrawRay(transform.position, _left * m_Raylength, Color.red);
+
 
         if (state == PlayerBehavior.walking)
         {
             if (result == true)
             {
-                
+
                 //check hit raycast
-                print("tag is: " + m_hit.transform.tag + " name: " + m_hit.transform.name);
+                print("tag is now: " + m_hit.transform.tag + " name: " + m_hit.transform.name);
 
                 if (m_hit.transform.CompareTag("Enemy"))
                 {
                     state = PlayerBehavior.attacking;
-                } 
+                }
+                else if (m_hit.transform.CompareTag("Player") && m_Raylength <= 1)
+                {
+                    state = PlayerBehavior.waiting;
+                }
             }
-            
+
 
             m_Walking = true;
         }
@@ -94,17 +93,18 @@ public class Player_Ranged : MonoBehaviour
             {
                 state = PlayerBehavior.walking;
             }
-            else
+            if (result == true)
             {
                 IsAttacking();
             }
-        } else if (state == PlayerBehavior.waiting)
+        }
+        else if (state == PlayerBehavior.waiting)
         {
             m_Walking = false;
 
             print("collided: " + result);
 
-            if(result == false)
+            if (result == false)
             {
                 state = PlayerBehavior.walking;
             }
@@ -120,11 +120,11 @@ public class Player_Ranged : MonoBehaviour
     {
         m_Timer -= Time.deltaTime;
 
-            if (m_Timer <= 0)
-            {
-                GameObject go = Instantiate(m_Bullet, m_FirePoint.position, m_FirePoint.rotation);
-                go.layer = LayerMask.NameToLayer("PlayerProjectiles");
-            }
+        if (m_Timer <= 0)
+        {
+            GameObject go = Instantiate(m_Bullet, m_FirePoint.position, m_FirePoint.rotation);
+            go.layer = LayerMask.NameToLayer("PlayerProjectiles");
+        }
     }
 
     public void TakeDamage(int damage)
