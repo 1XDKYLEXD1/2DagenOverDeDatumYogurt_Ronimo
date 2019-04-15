@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Raylength: 10
   m_Timer: 1
-  health: 5
+  health: 3
   m_Walking: 0
   m_Enemy: {fileID: 2210285113311134790}
   m_Bullet: {fileID: 3757719113544670732, guid: cbd13d9797e887142962ec7b6ee8335f,

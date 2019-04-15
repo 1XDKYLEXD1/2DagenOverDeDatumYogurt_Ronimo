@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Raylength: 5
-  health: 5
+  health: 3
   m_Walking: 0
   m_Enemy: {fileID: 6119646935881698901}
   m_Bullet: {fileID: 1781569928558435815, guid: cdcc1243dbf7f384197fc163242460d3,

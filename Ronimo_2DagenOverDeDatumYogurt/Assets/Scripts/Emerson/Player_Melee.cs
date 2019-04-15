@@ -47,6 +47,7 @@ public class Player_Melee : MonoBehaviour
         Vector3 _right = m_Enemy.transform.TransformDirection(Vector3.right);
         //raycast 
         bool result = Physics.Raycast(transform.position, _right, out m_hit, m_Raylength, layermask);
+        Debug.DrawRay(transform.position, _right * m_Raylength, Color.red);
 
 
 
@@ -54,7 +55,6 @@ public class Player_Melee : MonoBehaviour
         {
             if (result == true)
             {
-                Debug.DrawRay(transform.position, _right * m_Raylength, Color.red);
                 //check hit raycast
                 print("tag is: " + m_hit.transform.tag + " name: " + m_hit.transform.name);
 
