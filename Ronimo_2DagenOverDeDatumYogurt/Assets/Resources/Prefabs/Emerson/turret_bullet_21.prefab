@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 561234467755107973}
   - component: {fileID: 979100861644653115}
   - component: {fileID: 3558993494064944452}
-  - component: {fileID: 5695696645681636300}
   - component: {fileID: 6288035076532627102}
+  - component: {fileID: 3906858895794019128}
   m_Layer: 0
   m_Name: turret_bullet_21
   m_TagString: Untagged
@@ -98,19 +98,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5695696645681636300
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781569928558435815}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.736, y: 0.726, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6288035076532627102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +113,16 @@ MonoBehaviour:
   speed: 20
   damage: 1
   rb: {fileID: 3558993494064944452}
+--- !u!135 &3906858895794019128
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781569928558435815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.868
+  m_Center: {x: 0, y: 0, z: 0}

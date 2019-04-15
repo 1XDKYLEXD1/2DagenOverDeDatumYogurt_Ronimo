@@ -15,7 +15,7 @@ public class Player_Ranged : MonoBehaviour
     [SerializeField]
     [Range(1f, 30f)]
     private float m_Raylength;
-    public float m_Timer = 1.0f;
+    private float m_Timer = 1.0f;
 
 
     public int health = 5;
@@ -43,40 +43,39 @@ public class Player_Ranged : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (m_Walking == true)
         {
-            transform.position += transform.right * speed * Time.deltaTime;
+            transform.position += transform.right * +speed * Time.deltaTime;
         }
 
         if (m_Timer == 0 || m_Timer < 0)
         {
             m_Timer = 1;
         }
-        int layermask = 1 << 9; //Enemy Layer into layermask
+        int layermask = 1 << 10; //Enemy Layer into layermask
 
 
-        Vector3 _left = m_Enemy.transform.TransformDirection(Vector3.right);
+        Vector3 _right = m_Enemy.transform.TransformDirection(Vector3.right);
         //raycast 
-        bool result = Physics.Raycast(transform.position, _left, out m_hit, m_Raylength, layermask);
-        Debug.DrawRay(transform.position, _left * m_Raylength, Color.red);
+        bool result = Physics.Raycast(transform.position, _right, out m_hit, m_Raylength, layermask);
 
+        if (result == true && m_hit.transform.CompareTag("Player"))
+        {
+            state = PlayerBehavior.waiting;
+            Debug.Log("beep");
+        }
 
         if (state == PlayerBehavior.walking)
         {
             if (result == true)
             {
-
+                Debug.DrawRay(transform.position, _right * m_Raylength, Color.red);
                 //check hit raycast
-                print("tag is now: " + m_hit.transform.tag + " name: " + m_hit.transform.name);
+                print("tag is: " + m_hit.transform.tag + " name: " + m_hit.transform.name);
 
                 if (m_hit.transform.CompareTag("Enemy"))
                 {
                     state = PlayerBehavior.attacking;
-                }
-                else if (m_hit.transform.CompareTag("Player") && m_Raylength <= 1)
-                {
-                    state = PlayerBehavior.waiting;
                 }
             }
 
@@ -93,7 +92,7 @@ public class Player_Ranged : MonoBehaviour
             {
                 state = PlayerBehavior.walking;
             }
-            if (result == true)
+            else
             {
                 IsAttacking();
             }
